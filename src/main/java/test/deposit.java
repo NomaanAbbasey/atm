@@ -52,42 +52,42 @@ class deposit {
 	
 	@Test
 	void case9() {
-		assertEquals(0f, test_calc.calculateDepositInterest(40, 450, true));	
+		assertEquals(0.05f, test_calc.calculateDepositInterest(51, 501, true));	
 	}
 	
 	@Test
 	void case10() {
-		assertEquals(0f, test_calc.calculateDepositInterest(40, 450, true));	
+		assertEquals(0.025f, test_calc.calculateDepositInterest(51, 499, true));	
 	}
 	
 	@Test
 	void case11() {
-		assertEquals(0f, test_calc.calculateDepositInterest(40, 450, true));	
+		assertEquals(0.05f, test_calc.calculateDepositInterest(49, 5001, true));	
 	}
 	
 	@Test
 	void case12() {
-		assertEquals(0f, test_calc.calculateDepositInterest(40, 450, true));	
+		assertEquals(0f, test_calc.calculateDepositInterest(49, 4999, true));	
 	}
 	
 	@Test
 	void case13() {
-		assertEquals(0f, test_calc.calculateDepositInterest(40, 450, true));	
+		assertEquals(0.08f, test_calc.calculateDepositInterest(251, 2501, false));	
 	}
 	
 	@Test
 	void case14() {
-		assertEquals(0f, test_calc.calculateDepositInterest(40, 450, true));	
+		assertEquals(0.04f, test_calc.calculateDepositInterest(251, 2499, false));	
 	}
 	
 	@Test
 	void case15() {
-		assertEquals(0f, test_calc.calculateDepositInterest(40, 450, true));	
+		assertEquals(0f, test_calc.calculateDepositInterest(249, 10001, false));	
 	}
 	
 	@Test
 	void case16() {
-		assertEquals(0f, test_calc.calculateDepositInterest(40, 450, true));	
+		assertEquals(0.01f, test_calc.calculateDepositInterest(249, 9999, false));	
 	}
 
 }
