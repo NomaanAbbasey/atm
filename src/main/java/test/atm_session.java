@@ -147,5 +147,52 @@ class atm_session {
 	}
 	
 	//single fault tests
+	
+	@Test
+	void test_12() {
+		test_money = new Money(1000);
+		Session test_session = new Session(atm_test, 4567, "12345", 0, 0, 1, test_money);
+		try {
+			test_session.performSession();
+		}
+		catch(InvalidPINException e) {
+			fail("Test 11 Failed: Didn't catch InvalidPINException.");
+		}
+		catch(InvalidAmountException e) {
+			fail("Test 11 Failed: Didn't catch InvalidAmountException.");
+		}
+		catch(Exception e) {
+			//i don't care about the other exceptions like null pointer to simulation so im not going to explicitly assert!
+		}
+	}
+	
+	@Test
+	void test_13() {
+		test_money = new Money(45);
+		Session test_session = new Session(atm_test, 4567, "12345", 0, 0, 1, test_money);
+		InvalidAmountException exception = assertThrows(InvalidAmountException.class, () -> {
+			test_session.performSession();  
+        });
+	}
+	
+	@Test
+	void test_14() {
+		test_money = new Money(100);
+		Session test_session = new Session(atm_test, 4567, "123", 0, 0, 1, test_money);
+		try {
+			test_session.performSession();
+		}
+		catch(InvalidPINException e) {
+		
+		}
+		catch(InvalidAmountException e) {
+			
+		}
+		catch(Exception e) {
+			//i don't care about the other exceptions like null pointer to simulation so im not going to explicitly assert!
+		}
+		
+		fail("Test 14 Failed: Didn't catch InvalidPINException.");
+	}
 
 }
