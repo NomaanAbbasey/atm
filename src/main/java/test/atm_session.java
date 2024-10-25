@@ -36,6 +36,14 @@ class atm_session {
 	
 	@Test
 	void test_4() {
+		Session test_session = new Session(atm_test, 4567, "12a34", 3, 0, 1, test_money);
+		Exception exception = assertThrows(InvalidPINException.class, () -> {
+			test_session.performSession();  
+        });
+	}
+	
+	@Test
+	void test_5() {
 		Session test_session = new Session(atm_test, 4567, "", 3, 0, 1, test_money);
 		Exception exception = assertThrows(InvalidPINException.class, () -> {
 			test_session.performSession();  
