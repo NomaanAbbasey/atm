@@ -72,4 +72,18 @@ class withdrawalTest {
 		assertEquals(expectedFee, calc.calculateWithdrawalFee(withdrawalAmount, 1000, true, 7)); // Saturday
 	}
 
+	class WithdrawlFeeTests{
+
+		double withdrawalAmount = 10000; // nominal value, amount withdrawn has no dependencies
+		double nominalBalance = 10000;
+
+		assertEquals(0, calc.calculateWithdrawalFee(withdrawalAmount, nominalBalance, true, 7))
+		assertEquals(Math.round(0.001*withdrawalAmount), calc.calculateWithdrawalFee(withdrawalAmount, nominalBalance, true, 3))
+
+		assertEquals(Math.round(0.002*withdrawalAmount), calc.calculateWithdrawalFee(withdrawalAmount, 50000, false, 3))
+		assertEquals(Math.round(0.001*withdrawalAmount), calc.calculateWithdrawalFee(withdrawalAmount, 500000, false, 3))
+		assertEquals(0, calc.calculateWithdrawalFee(withdrawalAmount, 2000000, false, 3))
+
+	}
+
 }
